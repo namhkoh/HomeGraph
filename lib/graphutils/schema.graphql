@@ -1,0 +1,794 @@
+  # LocationInfo
+  input LocationInfo {
+      # LocationId
+      locationId: String
+      # Location name
+      name: String
+  }
+
+  # ANY type
+  scalar Anything
+
+  # Room info Input
+  input RoomInfo {
+    # Location ID
+    location: LocationInfo!
+    # Room Id
+    roomId: String
+    # Room name
+    name: String
+  }
+
+  # Location delete Input
+  input LocationDeleteInput {
+    # locationId
+    locationId: String
+  }
+
+  # Temperature Scale
+  enum TemperatureScale {
+    F
+    C
+  }
+
+  # Country code
+  enum CountryCode {
+    ABW
+    AFG
+    AGO
+    AIA
+    ALA
+    ALB
+    AND
+    ANT
+    ARE
+    ARG
+    ARM
+    ASM
+    ATA
+    ATF
+    ATG
+    AUS
+    AUT
+    AZE
+    BDI
+    BEL
+    BEN
+    BFA
+    BGD
+    BGR
+    BHR
+    BHS
+    BIH
+    BLM
+    BLR
+    BLZ
+    BMU
+    BOL
+    BRA
+    BRB
+    BRN
+    BTN
+    BVT
+    BWA
+    CAF
+    CAN
+    CCK
+    CHE
+    CHL
+    CHN
+    CIV
+    CMR
+    COD
+    COG
+    COK
+    COL
+    COM
+    CPV
+    CRI
+    CUB
+    CXR
+    CYM
+    CYP
+    CZE
+    DEU
+    DJI
+    DMA
+    DNK
+    DOM
+    DZA
+    ECU
+    EGY
+    ERI
+    ESH
+    ESP
+    EST
+    ETH
+    FIN
+    FJI
+    FLK
+    FRA
+    FRO
+    FSM
+    GAB
+    GBR
+    GEO
+    GGY
+    GHA
+    GIB
+    GIN
+    GLP
+    GMB
+    GNB
+    GNQ
+    GRC
+    GRD
+    GRL
+    GTM
+    GUF
+    GUM
+    GUY
+    HKG
+    HMD
+    HND
+    HRV
+    HTI
+    HUN
+    IDN
+    IMN
+    IND
+    IOT
+    IRL
+    IRN
+    IRQ
+    ISL
+    ISR
+    ITA
+    JAM
+    JEY
+    JOR
+    JPN
+    KAZ
+    KEN
+    KGZ
+    KHM
+    KIR
+    KNA
+    KOR
+    KWT
+    LAO
+    LBN
+    LBR
+    LBY
+    LCA
+    LIE
+    LKA
+    LSO
+    LTU
+    LUX
+    LVA
+    MAC
+    MAF
+    MAR
+    MCO
+    MDA
+    MDG
+    MDV
+    MEX
+    MHL
+    MKD
+    MLI
+    MLT
+    MMR
+    MNE
+    MNG
+    MNP
+    MOZ
+    MRT
+    MSR
+    MTQ
+    MUS
+    MWI
+    MYS
+    MYT
+    NAM
+    NCL
+    NER
+    NFK
+    NGA
+    NIC
+    NIU
+    NLD
+    NOR
+    NPL
+    NRU
+    NZL
+    OMN
+    PAK
+    PAN
+    PCN
+    PER
+    PHL
+    PLW
+    PNG
+    POL
+    PRI
+    PRK
+    PRT
+    PRY
+    PSE
+    PYF
+    QAT
+    REU
+    ROU
+    RUS
+    RWA
+    SAU
+    SDN
+    SEN
+    SGP
+    SGS
+    SHN
+    SJM
+    SLB
+    SLE
+    SLV
+    SMR
+    SOM
+    SPM
+    SRB
+    STP
+    SUR
+    SVK
+    SVN
+    SWE
+    SWZ
+    SYC
+    SYR
+    TCA
+    TCD
+    TGO
+    THA
+    TJK
+    TKL
+    TKM
+    TLS
+    TON
+    TTO
+    TUN
+    TUR
+    TUV
+    TWN
+    TZA
+    UGA
+    UKR
+    UMI
+    URY
+    USA
+    UZB
+    VAT
+    VCT
+    VEN
+    VGB
+    VIR
+    VNM
+    VUT
+    WLF
+    WSM
+    YEM
+    ZAF
+    ZMB
+    ZWE
+  }
+
+  # Locale two code
+  enum Locale {
+    aa
+    ab
+    ae
+    af
+    ak
+    am
+    an
+    ar
+    as
+    av
+    ay
+    az
+    ba
+    be
+    bg
+    bh
+    bm
+    bi
+    bn
+    bo
+    br
+    bs
+    ca
+    ce
+    ch
+    co
+    cr
+    cs
+    cu
+    cv
+    cy
+    da
+    de
+    dv
+    dz
+    ee
+    el
+    en
+    eo
+    es
+    et
+    eu
+    fa
+    ff
+    fi
+    fj
+    fo
+    fr
+    fy
+    ga
+    gd
+    gl
+    gn
+    gu
+    gv
+    ha
+    he
+    hi
+    ho
+    hr
+    ht
+    hu
+    hy
+    hz
+    ia
+    id
+    ie
+    ig
+    ii
+    ik
+    io
+    is
+    it
+    iu
+    ja
+    jv
+    ka
+    kg
+    ki
+    kj
+    kk
+    kl
+    km
+    kn
+    ko
+    kr
+    ks
+    ku
+    kv
+    kw
+    ky
+    la
+    lb
+    lg
+    li
+    ln
+    lo
+    lt
+    lu
+    lv
+    mg
+    mh
+    mi
+    mk
+    ml
+    mn
+    mr
+    ms
+    mt
+    my
+    na
+    nb
+    nd
+    ne
+    ng
+    nl
+    nn
+    no
+    nr
+    nv
+    ny
+    oc
+    oj
+    om
+    or
+    os
+    pa
+    pi
+    pl
+    ps
+    pt
+    qu
+    rm
+    rn
+    ro
+    ru
+    rw
+    sa
+    sc
+    sd
+    se
+    sg
+    si
+    sk
+    sl
+    sm
+    sn
+    so
+    sq
+    sr
+    ss
+    st
+    su
+    sv
+    sw
+    ta
+    te
+    tg
+    th
+    ti
+    tk
+    tl
+    tn
+    to
+    tr
+    ts
+    tt
+    tw
+    ty
+    ug
+    uk
+    ur
+    uz
+    ve
+    vi
+    vo
+    wa
+    wo
+    xh
+    yi
+    yo
+    za
+    zh
+    zu
+  }
+
+  # Input to add a location
+  input LocationAddInput {
+    # Name of new Location
+    name: String !
+    # Country Code
+    countryCode: CountryCode!
+    # Latitude of Location
+    latitude: Float!
+    # Longitude of Location
+    longitude: Float!
+    # regionRadius
+    regionRadius: Int
+    # Temperature scale unit
+    temperatureScale: TemperatureScale
+    # Location
+    locale: Locale
+  }
+
+  # Input to specify a room
+  input locationForRoom {
+    # Name of room
+    roomName: String!
+    # Location
+    location: LocationInfo!
+  }
+
+  # Actuation Value
+  enum onOff {
+    on
+    off
+  }
+
+  # Device Actuation type
+  input DeviceActuation {
+    # Device name
+    deviceName: String
+    # Actuation command
+    command: onOff
+  }
+
+  # Device details
+  type deviceDetails {
+    # deviceName
+    deviceName: String
+    # command
+    command: String
+  }
+
+  # General status reponse
+  type statusCode {
+    # Status code
+    status: String
+  }
+
+  # Symbol
+  input Symbol {
+    # Ticker
+    ticker: String
+  }
+
+  # Page
+  input Page {
+    # Page Number
+    number: Int
+    # Max items in Page
+    max: Int
+  }
+
+  # Input type to send a command to a device
+  input Command {
+    # device Id
+    deviceId: String!
+    # component name (typically "main")
+    component: String!
+    # Capability nae
+    capability: String!
+    # Command
+    command: String!
+    # Array of Args
+    args: [Anything!]
+  }
+
+  # Type for single Capability
+  type Capability {
+    # User readible label for capability
+    id: String
+    # Version number
+    version: Int
+  }
+
+  # A device may have multiple sub-systems and this is represented by a Component type
+  type Component {
+    # Unique ID of the component
+    id: String
+    # User readible label for component e.g main
+    label: String
+    # All the capabilities supported by the component
+    capabilities: [Capability!]!
+  }
+
+  # Representation of a device
+  type Device {
+    # Unique identifier for a device
+    deviceId: String
+    # User friendly name of a device
+    name: String
+    # User friendly name of a device
+    label: String
+    # The location a device belongs too
+    location: Location
+    # The room a device is in
+    room: Room
+    # Unique type ID for device
+    deviceTypeId: String
+    # User friendly name of device type
+    deviceTypeName: String
+    # The type used by the device to connect
+    deviceNetworkType: String
+    # Retrieves components with schema
+    components: [Component!]!
+     # Generic Conponents status
+    capabilityStatus(component: String!, capability: String!): Anything
+    # The current status of capabilities
+    status(capability: String): [Anything!]
+  }
+
+  # Paginated List of Devices
+  type DeviceList {
+    # Page list of Devices
+    devices: [Device!]!
+    # Indication if there are more devices
+    more: Boolean
+    # Next Page number
+    nextPage: String
+  }
+
+  # The Room type
+  interface Room {
+    # Unique room id
+    roomId: String!
+    # Location ID which the space is in
+    locationId: String!
+    # User friendly name of the room
+    name: String!
+    # The devices in a room
+    devices: [Device!]!
+  }
+
+  type STRoom implements Room {
+    # Unique Space id"
+    roomId: String!
+    # Location ID which the space is in
+    locationId: String!
+    # User friendly name of the room
+    name: String!
+    # The devices in a room
+    devices: [Device!]!
+  }
+
+  type Office implements Room {
+    # Unique Room id
+    roomId: String!
+    # Location ID which the Room is in
+    locationId: String!
+    # User friendly name of the room
+    name: String!
+    # The devices in a room
+    devices: [Device!]!
+    # Gets the underlying stock price
+    stock(ticker: String!): Stock
+  }
+
+  # The weather type based on openweather
+  type Weather {
+    # Timestamp of weather reading
+    timestamp: Int
+    # Location name
+    location: String
+    # Symbol indicated weather icon to use
+    condition: Int
+    # Text description of the weather
+    description: String
+    # Temperature in the unit scale defined by Location type
+    temperature: Float
+    # The pressure at the location
+    pressure: Float
+    # The humidity information
+    humidity: Float
+    # The current windspeed
+    wind_speed: Float
+    # The current wind direction
+    wind_direction: Int
+    # The percentage of cloud cove
+    cloud_cover: Float
+    # The current rain volume if any
+    rain_volume: Float
+    # The current rain volume if any
+    snow_volume: Float
+  }
+
+  # Air quality type based on Breezometer
+  type AirQuality {
+    # Timestamp for when air quality reading was taken"
+    time: String
+    # Air Quality Index per US EPA
+    epaAqi: Float
+    # Primary Pollutant per US EPA
+    epaPrimaryPollutant: String
+    # Particulate Matter < 2.5 μm
+    pm25: Float
+    # Particulate Matter < 10 μm
+    pm10: Float
+    #Nitrogen Dioxide
+    no2: Float
+    # Carbon Monoxide
+    co: Float
+    # Sulfur Dioxide
+    so2: Float
+    # Health concern level based on EPA standard
+    epaHealthConcern: String
+    # ClimaCell pollen index for Trees
+    pollenTree: Int
+    # ClimaCell pollen index for Weed
+    pollenWeed: Int
+    # ClimaCell pollen index for Grass
+    pollenGrass: Int
+  }
+
+  # A Location is a Home or Geographic area
+  type Location {
+    # The human readable name of a location
+    name: String
+    # A unique ID that represents a Location
+    locationId: String
+    # The international country code for a Location
+    countryCode: String
+    # The latitude for the location
+    latitude: Float
+    # The longitude for the location
+    longitude: Float
+    # This is the radius in meters around the latitude and longitude which defines this Location
+    regionRadius: Int
+    # This indicates if temperatures should be listed in Centigrade or Fahrenheit
+    temperatureScale: String
+    # The international timezone label
+    timeZoneId: String
+    # The international two character locale label
+    locale: String
+    # Gets all the rooms withing a location
+    rooms: [Room!]!
+    # Gets the weather at the location
+    weather: Weather
+    # Gets the airquality at the location
+    airQuality: AirQuality
+    # Fire hazard Index
+    fireHazard: Float
+    # What Three Words for Location
+    whatThreeWords: String
+  }
+
+  # Underlying Finincial Stock object
+  type Stock {
+    # Current price
+    currentPrice: String
+    # High price of the day
+    highPrice: String
+    # Low price of the day
+    lowPrice: String
+    # Open price of the day
+    openingPrice: String
+    # Previous close price
+    previousClose: String
+    # Timestamp
+    time: String
+    # Stock symbol
+    symbol: String
+  }
+
+  type CapabilityListing {
+    deviceName: String
+    deviceType: String
+    roomName: String
+    roomId: String
+    capabilityStatus: Anything!
+  }
+
+  # Home Graph Queries
+  type Query {
+    # Get all the Locations
+    getLocations: [Location!]!
+    # Get Specific Location Information
+    getLocation(for: LocationInfo!): Location
+    # Get data for a specific room in a location
+    getRoom(for: RoomInfo!): Room
+    # Gets all devices across all locations
+    getAllDevices(page: Int, max: Int ): DeviceList!
+    # Gets all devices of a certain type
+    getAllDevicesOfType(typeId: String!): DeviceList!
+    # Get the weather at a Location
+    getWeather(location: LocationInfo!): Weather
+    # Get the airQuality at a Location
+    getAirQuality(location: LocationInfo!): AirQuality
+    # Get the stock price of underlying ticker
+    getStockPrice(input: Symbol!): Stock
+    # Get the list of Devices with Capabilities
+    getDevicesWithCapability(locationId: String!, component: String!, capability: String!): [Device]!
+  }
+
+  # Home Graph Mutations
+  type Mutation {
+    # Add new location with input Location data
+    addNewLocation(input: LocationAddInput!): Location
+    # Delete location with input delete data
+    deleteLocation(for: LocationInfo!): statusCode
+    # Actuate the on/off command of input device
+    actuateDevice(input: DeviceActuation!): statusCode
+    # Create room at input Location
+    createRoom(input: locationForRoom!): Room
+    # Delete room at input Location
+    deleteRoom(input: locationForRoom!): statusCode
+    # Sends command to smartThings device
+    sendCommand(input: Command): statusCode
+  }

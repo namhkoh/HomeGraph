@@ -1,0 +1,8 @@
+{
+  "name": "my-project",
+  "verbose": true,
+  "globalSetup": "./server/globalSetup.js",
+  "globalTeardown": "./server/globalTeardown.js",
+  "testRegex": "((\\.|/*.)(int_test))\\.js?$",
+  "testTimeout": 30000
+}

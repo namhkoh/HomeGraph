@@ -1,0 +1,6 @@
+node_modules
+.serverless
+.env
+api_tester.js
+.vscode
+.DS_Store

@@ -1,0 +1,59 @@
+{
+  "name": "HomeGraph",
+  "version": "1.0.0",
+  "description": "Data Layer for home bases experiences based on SmartThings",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --config ./jest.config.json",
+    "test:integration": "jest --config ./integration/jest_config.json",
+    "deploy": "serverless deploy",
+    "start": "serverless offline --httpPort 8080",
+    "lint": "npx eslint - c. / .eslintrc. / lib /**/ * .js"
+  },
+  "keywords": [],
+  "author": "Jeff Morgan and Nam Ho Koh",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-eslint": "^9.0.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-config-wesbos": "0.0.19",
+    "eslint-plugin-html": "^5.0.5",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "husky": "^4.2.5",
+    "jest": "^25.2.2",
+    "jest-fetch-mock": "^3.0.3",
+    "pre-commit": "^1.2.2",
+    "prettier": "^1.19.1",
+    "serverless-dotenv-plugin": "^2.4.2",
+    "serverless-offline": "^6.1.2"
+  },
+  "dependencies": {
+    "@what3words/api": "^3.1.0",
+    "async-redis": "^1.1.7",
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^14.6.0",
+    "graphql-tools": "^5.0.0",
+    "node-breezometer": "^3.1.0",
+    "node-fetch": "^2.6.0",
+    "redis": "^3.0.2",
+    "serverless-http": "^2.3.2"
+  },
+  "files": [
+    "/lib/graphutils",
+    "/lib/smartThingsUtils.js",
+    "/lib/openweather/openweather.js",
+    "/lib/finhub/getStockPrice.js",
+    "/lib/climacell/aqi.js",
+    "/lib/climacell/fire.js"
+  ]
+}

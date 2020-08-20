@@ -1,0 +1,21 @@
+# serverless.yml
+
+service: smartThingsGraph
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: dev
+  region: us-west-1
+
+plugins:
+  - serverless-offline
+  - serverless-dotenv-plugin
+
+functions:
+  app:
+    handler: aws.handler
+    events:
+      - http: ANY /
+      - http: "ANY {proxy+}"
+      - http: "POST /graphql"
